@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<script src="lib/jquery.min.js"></script>
+	<script src="lib/jquery.poshytip.min.js"></script>
+	<script src="index.js"></script>
+	<link rel="stylesheet" href="./lib/tip-twitter.css">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+	<link rel="stylesheet" href="./style.css">
+	<title>Work Time Processor</title>
+	<style>
+		/* tooltipの履歴部分を消す */
+		div.ui-helper-hidden-accessible div{
+			display: none
+		}
+	</style>
+</head>
+
+<body id="body">
+	<div class="pure-g">
+		<div class="pure-u-1-24"></div>
+		<div class="pure-u-22-24">
+			<h1>Work Time Processor</h1>
+		</div>
+		<div class="pure-u-1-24"></div>
+	</div>
+	<div class="pure-g">
+		<div class="pure-u-1-24"></div>
+		<div class="pure-u-22-24">
+			<div class="pure-form pure-form-aligned">
+				<fieldset>
+					<div class="pure-control-group">
+						<label for="workStartTime">Work Start</label>
+						<select id="workStartHour" name="workTime">
+							<option value="0">00</option>
+							<option value="1">01</option>
+							<option value="2">02</option>
+							<option value="3">03</option>
+							<option value="4">04</option>
+							<option value="5">05</option>
+							<option value="6">06</option>
+							<option value="7">07</option>
+							<option value="8">08</option>
+							<option value="9">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+						</select>
+						:
+						<select id="workStartMinute" name="workTime">
+							<option value="00">00</option>
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="30">30</option>
+							<option value="40">40</option>
+							<option value="50">50</option>
+						</select>
+					</div>
+					<div class="pure-control-group">
+						<label for="workEndTime">Work End</label>
+						<select id="workEndHour" name="workTime">
+							<option value="0">00</option>
+							<option value="1">01</option>
+							<option value="2">02</option>
+							<option value="3">03</option>
+							<option value="4">04</option>
+							<option value="5">05</option>
+							<option value="6">06</option>
+							<option value="7">07</option>
+							<option value="8">08</option>
+							<option value="9">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+						</select>
+						:
+						<select id="workEndMinute" name="workTime">
+							<option value="0">00</option>
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="30">30</option>
+							<option value="40">40</option>
+							<option value="50">50</option>
+						</select>
+					</div>
+				</fieldset>
+				<fieldset>
+					<div class="pure-control-group">
+						<label for="totalWorkTime">Total Work Time</label>
+						<span id="totalWorkTime" data-totalWorkTime="0">0h0min</span>
+					</div>
+				</fieldset>
+				<fieldset>
+					<div class="pure-control-group">
+						<div id="projectsInputArea">
+							<label for="projectName1">Project1</label>
+							<input type="text" name="projectName" id="projectName1" placeholder="Project Name">
+
+							<select name="projectWorkPercentage">
+								<option value="0">0%</option>
+								<option value="10">10%</option>
+								<option value="20">20%</option>
+								<option value="30">30%</option>
+								<option value="40">40%</option>
+								<option value="50">50%</option>
+								<option value="60">60%</option>
+								<option value="70">70%</option>
+								<option value="80">80%</option>
+								<option value="90">90%</option>
+								<option value="100">100%</option>
+							</select>
+							<span name="projectTime">0h0min</span>
+						</div>
+					</div>
+					<div class="pure-control-group">
+						<div id="projectsInputArea">
+							<label for="projectName2">Project2</label>
+							<input type="text" name="projectName" id="projectName2" placeholder="Project Name">
+
+							<select name="projectWorkPercentage">
+								<option value="0">0%</option>
+								<option value="10">10%</option>
+								<option value="20">20%</option>
+								<option value="30">30%</option>
+								<option value="40">40%</option>
+								<option value="50">50%</option>
+								<option value="60">60%</option>
+								<option value="70">70%</option>
+								<option value="80">80%</option>
+								<option value="90">90%</option>
+								<option value="100">100%</option>
+							</select>
+							<span name="projectTime">0h0min</span>
+						</div>
+					</div>
+
+					<div class="pure-control-group">
+						<div id="projectsInputArea">
+							<label for="projectName3">Project3</label>
+							<input type="text" name="projectName" id="projectName3" placeholder="Project Name">
+
+							<select name="projectWorkPercentage">
+								<option value="0">0%</option>
+								<option value="10">10%</option>
+								<option value="20">20%</option>
+								<option value="30">30%</option>
+								<option value="40">40%</option>
+								<option value="50">50%</option>
+								<option value="60">60%</option>
+								<option value="70">70%</option>
+								<option value="80">80%</option>
+								<option value="90">90%</option>
+								<option value="100">100%</option>
+							</select>
+							<span name="projectTime">0h0min</span>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<div class="pure-control-group">
+						<div id="projectsInputArea">
+							<label for="projectTotal">Total</label>
+							<span></span>
+							<span id="projectTotal">0%</span>
+						</div>
+					</div>
+				</fieldset>
+				<div class="pure-controls">
+					<button id="btn_check" title="click to check times." class="pure-button pure-button-primary">Check</button>
+				</div>
+			</div>
+		</div>
+		<div class="pure-u-1-24"></div>
+	</div>
+	<div class="pure-g">
+		<div class="pure-u-1-24"></div>
+		<div class="pure-u-22-24">
+			<div id="errorStatus" class="hidden pure-controls"></div>
+		</div>
+		<div class="pure-u-1-24"></div>
+	</div>
+</body>
+
+</html>
